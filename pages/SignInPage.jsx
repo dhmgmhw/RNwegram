@@ -18,7 +18,7 @@ export default function SignInPage({ navigation }) {
           </Text>
           <Form style={styles.form}>
             <ItemInput title={'이메일'} />
-            <ItemInput title={'비밀번호'} />
+            <ItemInput title={'비밀번호 작성'} />
           </Form>
           {/* <Button full style={styles.snsSignUp}>
             <Text>Facebook 로그인</Text>
