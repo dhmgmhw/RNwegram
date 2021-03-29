@@ -1,22 +1,45 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Col, Grid } from 'react-native-easy-grid';
-import { Container, Content, Text, Thumbnail } from 'native-base';
+import {
+  StyleSheet,
+  Image,
+  View,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import {
+  Container,
+  Header,
+  Content,
+  Left,
+  Icon,
+  Right,
+  Text,
+  Button,
+  Thumbnail,
+} from 'native-base';
+import CardComponent from '../components/CardComponent';
 import ImageComponent from '../components/ImageComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 const my = require('../assets/my.png');
 const data = require('../data.json');
+const imageWidth = Dimensions.get('window').width / 3;
+import { logout } from '../config/firebaseFunctions';
 
-export default function MyPage() {
+export default function MyPage({ navigation }) {
+  const logoutFunc = () => {
+    logout(navigation);
+  };
+
   return (
     <Container>
       <HeaderComponent />
       <Content>
         <Thumbnail large source={my} style={styles.thumbnail} />
-        <Text style={styles.myTitle}>m.honange</Text>
+        <Text style={styles.myTitle}>스파르타코딩 클럽</Text>
         <Text style={{ alignSelf: 'center' }}>dhmgmhw@gmail.com</Text>
-        <TouchableOpacity style={{ marginTop: 20 }}>
+        <TouchableOpacity style={{ marginTop: 20 }} onPress={logoutFunc}>
           <Text style={styles.logout}>로그아웃</Text>
         </TouchableOpacity>
         <Grid style={{ marginTop: 30 }}>
